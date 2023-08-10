@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+  body {
+      background-color: white;
+  }
+  .button1 {background-color: #4CAF50;
+		font-size: 16px;}
+	p {
+		font-family: verdana;
+		font-size: 14px;
+		color: black
+	}
+	input {
+	width: 20%;
+	padding: 6px 10px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<div class="container py-5">
+  <h1>Login</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ login_form }}
+    <button class="btn btn-primary button1" type="submit">Login</button>
+  </form>
+  <p class="text-center">Don't have an account? <a href="/">Create an account</a>.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Product Price Scheduler</title>
+</head>
+<style>
+    body {
+        background-color: rgb(255, 255, 255);
+    }
+    p {
+        font-family: verdana;
+        font-size: 14px;
+        color: black
+    }
+    input {
+        width: 20%;
+        padding: 6px 10px;
+        margin: 8px 0;
+        display: block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        display: inline;
+        }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+    
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    
+    li a:hover {
+        background-color: #111;
+    }
+    div.container {
+        text-align: center;
+    }
+</style>
+<body>
+    <nav style="background-color:#0e8436">
+        <div><ul>
+                <li style="float:left;">
+                    <a href='/product_list/{{ user.id }}/'>Home</a>
+                </li>
+                <li style="float:right;">
+                    <a href='/logout/'>Logout</a>
+                </li>
+            </ul></div>
+    </nav>
+    <h2>Schedule a product</h2>
+    <form style="display: inline" action="/product_list/{{ user.id }}/addproduct/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>URL</label>
+        <input type="text" style="display:flex;" name="Url" id="url" placeholder="Enter the Product Url:">
+        <!-- <label>Content</label>
+        <input type="text" style="display:flex;" name="Content" id="content" placeholder="Enter the content of your post"> -->
+        <input type="submit" style="display:flex; width: 10%;" name="Post" >
+    </form>
+</body>
