@@ -86,13 +86,14 @@ def fetch_data(amazon_base_url):
 def add_product(request,userid):
     if request.method=="POST":
         if request.user.is_authenticated:
-            data={'url':request.POST['Url'],}
-            product_name,Original_price,Current_price=fetch_data(data['url'])
+            data={'Url':request.POST['Url'],}
+            product_name,Original_price,Current_price=fetch_data(data['Url'])
             data['product_name']=product_name
             data['Original_price']=Original_price
             data['Current_price']=Current_price
             data['user']=str(request.user.id)
             data['lowest_price']=Current_price
+            print('data',data)
             serializer = ProductSerializer(data=data)
             if serializer.is_valid():
                 serializer.save()
