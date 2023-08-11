@@ -1,2 +1,2 @@
 # Product_value_scheduler
-This project is to keep track of amazon products value, further which users get notified when the product reaches to its lowest value via email.
+Created a dynamic web application using Python and Django framework to empower users to effortlessly monitor Amazon product prices. Implemented an intuitive interface allowing users to set up alerts by inputting the product link. Employed Beautiful Soup for efficient web scraping and real-time price tracking. Integrated SMTP for seamless email notifications, ensuring users are promptly informed when the price drops below the lowest recorded or the current value. Skillfully utilized HTML and CSS for an engaging and user-friendly experience.
