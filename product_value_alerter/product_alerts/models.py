@@ -12,7 +12,6 @@ class URLs_Feed_Abstract(models.Model):
         abstract = True
 
 class URLs_Feed(URLs_Feed_Abstract):
-    # user=models.ForeignKey(User,on_delete=models.CASCADE,default=1)
     Url=models.TextField()
     product_name=models.TextField()
     Original_price=models.IntegerField()
@@ -23,7 +22,7 @@ class URLs_Feed(URLs_Feed_Abstract):
     class Meta:
         ordering=('-created_at',)
     def __str__(self):
-        return f"{self.user} : {self.product_name}"
+        return f"{self.product_name}"
 
 class userList(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE,default=1)
