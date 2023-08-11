@@ -100,10 +100,11 @@ def add_product(request,userid):
                     print('user trying to add same url again!!')
                     pass
                 else:
-                    print('mapping url to the current user')
+                    print('Mapping url to the current user..!')
                     URL.users.add(request.user)
                     user_data=userList.objects.get(id=userid)
                     user_data.Urls.add(URL)
+                    print('Success')
                 return redirect(f"/product_list/{userid}")
             else:       
                 print('fetching data...!')
