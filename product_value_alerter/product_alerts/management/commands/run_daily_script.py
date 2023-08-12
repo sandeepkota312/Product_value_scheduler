@@ -25,19 +25,27 @@ def fetch_product_latest_price():
             Current_price=int(Str)
             if Url_object.Current_price>Current_price:
                 if Url_object.lowest_price>Current_price:
+                    diff=Url_object.Current_price-Current_price
                     Url_object.lowest_price=Current_price
                     Url_object.Current_price=Current_price
+                    Url_object.status=f'Lowest price ever..!! {diff} drop'
                     Url_object.save()
                     print(Url_object.product_name+'Lowest price ever..!!')
                 else:
+                    diff=Url_object.Current_price-Current_price
                     Url_object.Current_price=Current_price
+                    Url_object.status=f'Price {diff} drop..!!'
                     Url_object.save()
                     print('Price drop..!!')
             elif Url_object.Current_price<Current_price:
                 Url_object.Current_price=Current_price
+                diff=Current_price-Url_object.Current_price
+                Url_object.status=f'Price increased :( {diff} more'
                 Url_object.save()
                 print('Price increased :(')
             else:
+                Url_object.status='No price Change..!'
+                Url_object.save()
                 print('No price Change..!')
                 pass
             
@@ -48,7 +56,7 @@ class Command(BaseCommand):
     help = 'Runs a daily script'
 
     def handle(self, *args, **options):
-        schedule.every().day.at("21:05").do(fetch_product_latest_price)  # Adjust the time as needed
+        schedule.every().day.at("21:32").do(fetch_product_latest_price)  # Adjust the time as needed
         print('Scheduler started :)')
         while True:
             schedule.run_pending()

@@ -14,9 +14,9 @@ class URLs_Feed_Abstract(models.Model):
 class URLs_Feed(URLs_Feed_Abstract):
     Url=models.TextField()
     product_name=models.TextField()
+    status=models.TextField(null=True, default=None)
     Original_price=models.IntegerField()
     Current_price=models.IntegerField()
-    # Expected_price=models.IntegerField(default=None)
     lowest_price=models.IntegerField()
     users=models.ManyToManyField(User,default=None)
     class Meta:

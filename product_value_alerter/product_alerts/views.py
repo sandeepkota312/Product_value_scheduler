@@ -114,6 +114,7 @@ def add_product(request,userid):
                 data['Current_price']=Current_price
                 # data['user']=str(request.user.id)
                 data['lowest_price']=Current_price
+                data['status']='No price Change..!'
                 print('data',data)
                 serializer = ProductSerializer(data=data)
                 if serializer.is_valid():

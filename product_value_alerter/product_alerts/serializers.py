@@ -4,7 +4,7 @@ from .models import URLs_Feed
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model=URLs_Feed
-        fields=['Url','product_name','Original_price','Current_price','lowest_price','users',]
+        fields=['Url','product_name','Original_price','Current_price','lowest_price','users','status',]
 
 
 
