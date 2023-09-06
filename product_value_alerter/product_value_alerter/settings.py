@@ -27,6 +27,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Define the session settings
+SESSION_COOKIE_AGE = 3600  # Session duration in seconds (1 hour)
+
+# Other session-related settings
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Session storage backend (default: database)
+SESSION_COOKIE_NAME = 'my_session_cookie'  # Name of the session cookie (default: "sessionid")
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Whether the session expires when the user closes their browser (default: False)
+
 
 # Application definition
 

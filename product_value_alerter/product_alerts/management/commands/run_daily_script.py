@@ -55,7 +55,7 @@ def fetch_product_latest_price():
 class Command(BaseCommand):
     help = 'Runs a daily script'
 
-    def handle(self, *args, **options):
+    def handle(self):
         schedule.every().day.at("21:32").do(fetch_product_latest_price)  # Adjust the time as needed
         print('Scheduler started :)')
         while True:
